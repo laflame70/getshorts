@@ -3,13 +3,15 @@ services:
     name: video-editor-api
     env: node
     region: oregon
-    buildCommand: 'cd api && npm install'
-    startCommand: 'cd api && npm start'
+    rootDir: api  # <--- Questa è la riga corretta!
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
     plan: starter
   - type: static_site
     name: video-editor-client
     env: static
     region: oregon
-    buildCommand: 'cd client && npm install && npm run build'
+    rootDir: client # <--- Questa è la riga corretta!
+    buildCommand: 'npm install && npm run build'
     publishPath: client/dist
     plan: starter
